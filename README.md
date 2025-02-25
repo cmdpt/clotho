@@ -3,6 +3,11 @@
 *** that would make this better, please fork the repo and create a pull request
 *** or simply open an issue with the tag "enhancement".
 *** Thanks again! Now go create something AMAZING! :D
+***
+***
+***
+*** To avoid retyping too much info. Do a search and replace for the following:
+*** github_username, repo_name, twitter_handle, email, project_title, project_description
 -->
 
 
@@ -20,30 +25,24 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/cmdpt/clotho">
+    <img src="images/logo.png" alt="Logo" width="200" height="200">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+<h3 align="center">Clotho</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    A Discord bot to aid in group-based decision-making
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/cmdpt/clotho/issues/new/choose">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/cmdpt/clotho/issues/new/choose">Request Feature</a>
   </p>
 </p>
 
@@ -64,14 +63,16 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#set-up">Set Up</a></li>
+        <li><a href="#running-clotho">Running Clotho</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#author">Author</a></li>
   </ol>
 </details>
 
@@ -80,79 +81,104 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Clotho Screen Shot][product-screenshot]](https://github.com/cmdpt/clotho)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+Clotho is a Discord bot that I made to help my friends and I suggest things, vote on said things, and determine which thing wins via anonymous surveys.
+The surveys are supplied using [StrawPoll](https://strawpoll.com/) and their [free API](https://strawpoll.com/api-docs) (thanks StrawPoll!).
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
-
-
+* [NodeJS](https://nodejs.org/en/)
+* [DiscordJS](https://discord.js.org/#/)
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+As of right now, I don't have this bot hosted anywhere for public use. To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+You'll need the latest version of [Node](https://nodejs.org/en/), and that's about it.
+```sh
+enable corepack
+yarn install
+```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/cmdpt/clotho.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
+   # if you use npm
    npm install
+
+   # if you use yarn
+   yarn
    ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
+
+### Set Up
+1. [Create a bot account on Discord, generate a token, and invite it to your channel](https://discordpy.readthedocs.io/en/latest/discord.html)
+1. Create a [StrawPoll](https://strawpoll.com/) account and generate an API key by going to **Settings** => **API Key**
+1. In the root directory of Clotho, create a file called `config.json` that looks like this:
+   ```json
+   {
+     "BOT_TOKEN": "Your bot's token",
+     "STRAWPOLL_KEY": "Your StrawPoll API key"
+   }
    ```
+
+### Running Clotho
+1. Go to the root directory
+1. `yarn && yarn start`
+1. Your terminal should say "Clotho is up and running!"
+    * If you also see that the bot account you put in your channel is active with a green dot next to it, then you're good to go!
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+> "Great, the bot is running. Now how do I use it??"
+\- You, probably
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+All of Clotho's commands begin with `!!`, and you can always get a printed summary of every command with `!!help`. Clotho's status in Discord displays as "Playing !!help", so you can look at the bot's avatar in the server if you forget the help command. :+1:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
+### Commands
+|   Command   | Parameters |                                                                                                                  Explanation                                                                                                                 |
+|-----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `!!ping`      | None       | Clotho replies with a message to let you know she is up and running.                                                                                                                                                                         |
+| `!!help`      | None       | Clotho will reply with a list of all commands and how to use them.                                                                                                                                                                           |
+| `!!startpoll` | Poll Title | Clotho will begin recording information for a poll with the given title.<br>Users will now be able to use the `!!submit` command.                                                                                                                |
+| `!!submit`    | Candidate  | Clotho will record your candidate and user information for the open poll.<br>If you submit another candidate, it will replace your current one.<br>Clotho will send you a private message to show you what she received/saved as your submission. |
+| `!!closepoll` | None       | Clotho will no longer accept submissions for the open poll.<br>Clotho will use the StrawPoll API to create a poll with all of the submitted candidates and post the link to it.                                                                 |
+| `!!declare`   | None       | Clotho will inspect the StrawPoll, determine which candidate is the winner, and post a message about it.<br>All poll information will be cleared and a new one may be started.<br><br>**NOTE:** If there is a tie between candidates, a new StrawPoll will be created with only those candidates. |
+| `!!reset`   | None       | Reset all poll information to nothing. You'll have a clean slate!                                                                  |
 
 <!-- ROADMAP -->
 ## Roadmap
+As of right now, there isn't much else that I want to add. I have one or two quality-of-life things that I would like to add, and I may come up with a better/more efficient way for the bot to perform its utilities, but at the moment it's working perfectly for my friends and I!
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/cmdpt/clotho/issues) for a list of proposed features (and known issues).
+You can also check out my [project](https://github.com/cmdpt/clotho/projects/1) here on GitHub so you can see what I'm currently working on.
+
+
+
+<!-- FAQ -->
+## FAQ
+Or rather, what I'm anticipating people will ask. :shrug:
+
+#### Why "Clotho"?
+[Clotho](https://en.wikipedia.org/wiki/Clotho) is one of the three Sisters of Fate in Greek mythology. Specifically, she's the one who spins the thread of human life and thus makes all major decisions. It seemed to fit the goal, however dramatic it may be. :)
+
+#### Can't I just use your bot?
+At the moment I don't have a publicly hosted version of the bot available, but if there's enough interest I would be willing to put some work towards that!
 
 
 
 <!-- CONTRIBUTING -->
 ## Contributing
-
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
@@ -165,50 +191,32 @@ Contributions are what make the open source community such an amazing place to b
 
 <!-- LICENSE -->
 ## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the GPL 2.0 License. See `LICENSE` for more information.
 
 
 
 <!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Animate.css](https://daneden.github.io/animate.css)
-* [Loaders.css](https://connoratherton.com/loaders)
-* [Slick Carousel](https://kenwheeler.github.io/slick)
-* [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-* [Sticky Kit](http://leafo.net/sticky-kit)
-* [JVectorMap](http://jvectormap.com)
-* [Font Awesome](https://fontawesome.com)
-
-
+## Author
+Author: [Alex Hoopes](https://github.com/ahoopes16)
+<br>
+[![LinkedIn](https://img.shields.io/badge/-LINKEDIN-blue?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/kevin-alex-hoopes/)](https://www.linkedin.com/in/kevin-alex-hoopes/)
+[![StackOverflow](https://img.shields.io/badge/-STACKOVERFLOW-orange?style=for-the-badge&logo=stack-overflow&logoColor=white&color=FE7A16&link=https://stackoverflow.com/users/14123656/kevin-hoopes)](https://stackoverflow.com/users/14123656/kevin-hoopes)
+[![CodePen](https://img.shields.io/badge/-CODEPEN-black?style=for-the-badge&logo=codepen&logoColor=white&color=000000&link=https://codepen.io/ahoopes16)](https://codepen.io/ahoopes16)
+[![HashNode](https://img.shields.io/badge/-HASHNODE-blue?style=for-the-badge&logo=hashnode&logoColor=white&color=2962FF&link=https://hashnode.com/@ahoopes16)](https://hashnode.com/@ahoopes16)
+[![gmail](https://img.shields.io/badge/-GMAIL-orange?style=for-the-badge&logo=gmail&logoColor=white&color=EA4335&link=mailto:kevin.alex.hoopes@gmail.com)](mailto:kevin.alex.hoopes@gmail.com)
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[contributors-shield]: https://img.shields.io/github/contributors/cmdpt/clotho.svg?style=for-the-badge
+[contributors-url]: https://github.com/cmdpt/clotho/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/cmdpt/clotho.svg?style=for-the-badge
+[forks-url]: https://github.com/cmdpt/clotho/network/members
+[stars-shield]: https://img.shields.io/github/stars/cmdpt/clotho.svg?style=for-the-badge
+[stars-url]: https://github.com/cmdpt/clotho/stargazers
+[issues-shield]: https://img.shields.io/github/issues/cmdpt/clotho.svg?style=for-the-badge
+[issues-url]: https://github.com/cmdpt/clotho/issues
+[license-shield]: https://img.shields.io/github/license/cmdpt/clotho.svg?style=for-the-badge
+[license-url]: https://github.com/cmdpt/clotho/blob/master/LICENSE.txt
+[product-screenshot]: images/clotho-demo.gif
